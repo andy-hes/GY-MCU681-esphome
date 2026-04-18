@@ -23,7 +23,6 @@ void MCU680Component::setup() {
 
 void MCU680Component::dump_config() {
   ESP_LOGCONFIG(TAG, "MCU680 / MCU681 UART Sensor");
-  LOG_UART_DEVICE(this);
   LOG_SENSOR("  ", "Temperature", this->temperature_sensor_);
   LOG_SENSOR("  ", "Humidity", this->humidity_sensor_);
   LOG_SENSOR("  ", "Pressure", this->pressure_sensor_);
@@ -31,6 +30,7 @@ void MCU680Component::dump_config() {
   LOG_SENSOR("  ", "IAQ Accuracy", this->iaq_accuracy_sensor_);
   LOG_SENSOR("  ", "Gas Resistance", this->gas_resistance_sensor_);
   LOG_SENSOR("  ", "Altitude", this->altitude_sensor_);
+  this->check_uart_settings(9600);
 }
 
 bool MCU680Component::valid_checksum_(const uint8_t *frame) const {
