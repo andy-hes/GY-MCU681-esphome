@@ -6,7 +6,7 @@ UART external component for GY-MCU680 / GY-MCU681 style modules.
 
 ```yaml
 external_components:
-  - source: github://YOUR_GITHUB_USERNAME/mcu680-esphome
+  - source: github://andy-hes/GY-MCU681-esphome
     components: [mcu680]
 
 uart:
