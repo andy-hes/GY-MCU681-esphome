@@ -77,30 +77,29 @@ mcu680:
 ```
 
 ## Wiring
-Typical connection:
+Typical connection:  
+MCU681 TX → ESP32 RX  
+MCU681 RX → ESP32 TX  
+VCC → 3.3V or 5V (depending on module)  
+GND → GND  
 
-MCU681 TX → ESP32 RX
-MCU681 RX → ESP32 TX
-VCC → 3.3V or 5V (depending on module)
-GND → GND
+## Notes  
+Gas resistance is reported in kΩ  
+Altitude is calculated from pressure and may require calibration  
+IAQ is based on the sensor’s internal algorithm  
+Sensor values improve after warm-up time  
+Different module variants may use slightly different firmware  
 
-## Notes
-Gas resistance is reported in kΩ
-Altitude is calculated from pressure and may require calibration
-IAQ is based on the sensor’s internal algorithm
-Sensor values improve after warm-up time
-Different module variants may use slightly different firmware
+## Known limitations  
+Altitude is pressure-based and can vary with weather  
+IAQ values are relative, not absolute measurements  
+Some MCU680/681 clones may use different frame formats  
 
-## Known limitations
-Altitude is pressure-based and can vary with weather
-IAQ values are relative, not absolute measurements
-Some MCU680/681 clones may use different frame formats
+## References  
+This implementation is based on reverse engineering and existing work:  
+https://github.com/avaldebe/PyPMS  
+https://avaldebe.github.io/PyPMS/sensors/mcu680/ 
+NodeMCU Lua implementation (protocol reference)  
 
-## References
-This implementation is based on reverse engineering and existing work:
-https://github.com/avaldebe/PyPMS
-https://avaldebe.github.io/PyPMS/sensors/mcu680/
-NodeMCU Lua implementation (protocol reference)
-
-## License
+## License  
 MIT License
