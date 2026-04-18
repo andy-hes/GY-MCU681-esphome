@@ -1,13 +1,11 @@
-# MCU680 / MCU681 ESPHome external component
-
-UART external component for GY-MCU680 / GY-MCU681 style modules.
-
-## Install in ESPHome
-
-```yaml
 external_components:
-  - source: github://YOUR_GITHUB_USERNAME/mcu680-esphome
+  - source:
+      type: local
+      path: ./components
     components: [mcu680]
+
+logger:
+  level: DEBUG
 
 uart:
   id: uart_bus
@@ -32,11 +30,3 @@ mcu680:
     name: "MCU681 Gassmotstand"
   altitude:
     name: "MCU681 Høyde"
-```
-
-## Notes
-
-- Temperature and humidity default to 1 decimal.
-- Pressure defaults to 2 decimals.
-- Gas resistance is published in kΩ.
-- Altitude is derived by the module from pressure and can drift.
