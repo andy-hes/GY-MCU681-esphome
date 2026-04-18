@@ -1,16 +1,28 @@
 external_components:
-  - source:
-      type: local
-      path: ./components
+  - source: github://andy-hes/GY-MCU681-esphome
     components: [mcu680]
 
+esphome:
+  name: esp32-s3-cam #Add your type of ESP
+
+esp32:
+  board: esp32-s3-devkitc-1 #Add your type of ESP
+  framework:
+    type: esp-idf
+
 logger:
-  level: DEBUG
+
+api:
+ota:
+
+wifi:
+  ssid: "DIN_WIFI"
+  password: "DITT_PASSORD"
 
 uart:
   id: uart_bus
-  tx_pin: GPIO9
-  rx_pin: GPIO10
+  tx_pin: GPIO9 #Change to the GPIO your are using
+  rx_pin: GPIO10 #Change to the GPIO your are using
   baud_rate: 9600
 
 mcu680:
